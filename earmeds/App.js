@@ -65,7 +65,7 @@ export default function App() {
               return (
                 <View style={{ alignItems: "center", justifyContent: "center" }}>
                   <MaterialCommunityIcons name="weather-partly-cloudy" size={24} color={focused ? "#33CCCC" : "#111"} />
-                  <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Hava Durumu</Text>
+                  <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Hava Durumuaaa</Text>
                 </View>
               )
             }
