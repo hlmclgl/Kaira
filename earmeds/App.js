@@ -1,24 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-import { HealthRings } from './components/HealthRings/HealthRing';
+
 import { Home, ColorPalette, MenstrualCycle, Translate, Weather } from "./screens"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Entypo } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
+
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import HealthRate from './components/HeartRate/HealthRate';
-import SpO2 from './components/SpO2/SpO2';
-import StressLevel from './components/StressLevel/StressLevel';
+
 import { Platform } from 'react-native';
 
-import BloodSugar from './components/BloodSugar/BloodSugar';
+
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {

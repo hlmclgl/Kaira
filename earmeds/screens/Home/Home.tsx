@@ -2,13 +2,13 @@ import { View, Text, Image } from 'react-native';
 import { colors } from './colors';
 import React, { useState } from 'react';
 import { Ring } from './Ring/Ring';
-import Card from './Cards/Card';
+import Card from './Cards/HeartRateCard';
 import { SmallButton } from './SmallButtons/SmallButton';
 import { AntDesign, FontAwesome5, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import Card1 from './Cards/Card1';
-import Card2 from './Cards/Card2';
-import Card3 from './Cards/Card3';
-import Card4 from './Cards/Card4';
+import Card1 from './Cards/SpO2Card';
+import Card2 from './Cards/StressCard';
+import Card3 from './Cards/BloodSugarCard';
+import Card4 from './Cards/SleepCard';
 import StepsCard from './Cards/StepsCard';
 
 export const Home: React.FC = () => {
