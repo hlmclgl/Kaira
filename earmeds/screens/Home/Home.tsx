@@ -18,9 +18,9 @@ export const Home: React.FC = () => {
     const [percent3, setPercent3] = useState(0);
 
     const regenerateData = () => {
-        setPercent1(Math.floor(Math.random() * 100));
-        setPercent2(Math.floor(Math.random() * 100));
-        setPercent3(Math.floor(Math.random() * 100));
+        setPercent1(Math.floor(65));
+        setPercent2(Math.floor(55));
+        setPercent3(Math.floor(83.5));
         setIsGenerated(true);
     };
 
@@ -46,7 +46,7 @@ export const Home: React.FC = () => {
             gradientStartColor: colors.greenStart,
             gradientEndColor: colors.greenEnd,
             fill: percent2,
-            icon: <AntDesign name="doubleright" size={10} color="black" />,
+            icon: <AntDesign name="doubleright" size={10} color="black"/>,
         },
         {
             radius: 30,
@@ -54,7 +54,7 @@ export const Home: React.FC = () => {
             gradientStartColor: colors.blueStart,
             gradientEndColor: colors.blueEnd,
             fill: percent3,
-            icon: <AntDesign name="arrowup" size={20} color="black" />,
+            icon: <Ionicons name="arrow-up" size={24} color="black" />,
         },
     ];
 
@@ -65,13 +65,13 @@ export const Home: React.FC = () => {
                 style={{
                     color: 'white',
                     fontSize: 25,
-                    top: 135,
+                    top: 130,
                     fontWeight: 'bold',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
                 }}
             >
-                Dairesel Sağlık Grafiği
+                Aktivite Grafiği
             </Text>
 
             {ringProps.map((props, index) => (
@@ -81,35 +81,35 @@ export const Home: React.FC = () => {
             <Text
                 style={{
                     color: '#FA114E',
-                    fontSize: 20,
-                    top: 145,
-                    right: 15,
+                    fontSize: 35,
+                    top: 128,
+                    right: 102,
                     fontWeight: 'bold',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
                 }}
             >
-                167
+                325
                 <Text
                     style={{
                         color: '#FA114E',
-                        fontSize: 15,
-                        top: 145,
+                        fontSize: 23,
+                        top: 115,
                         right: 15,
                         fontWeight: 'normal',
                         fontFamily: 'Roboto',
                         textAlign: 'left',
                     }}
                 >
-                    DK
+                    KAL
                 </Text>
             </Text>
             <Text
                 style={{
                     color: '#30030E',
-                    fontSize: 13,
-                    top: 141,
-                    right: 13,
+                    fontSize: 17,
+                    top: 125,
+                    right: 115,
                     fontWeight: 'normal',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
@@ -121,20 +121,20 @@ export const Home: React.FC = () => {
             <Text
                 style={{
                     color: '#99FF02',
-                    fontSize: 20,
-                    top: 100,
-                    right: -57,
+                    fontSize: 35,
+                    top: 130,
+                    right: 117,
                     fontWeight: 'bold',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
                 }}
             >
-                82
+                45
                 <Text
                     style={{
                         color: '#99FF02',
-                        fontSize: 15,
-                        top: 100,
+                        fontSize: 23,
+                        top: 270,
                         right: -62,
                         fontWeight: 'normal',
                         fontFamily: 'Roboto',
@@ -147,9 +147,9 @@ export const Home: React.FC = () => {
             <Text
                 style={{
                     color: '#30030E',
-                    fontSize: 13,
-                    top: 97,
-                    right: -58,
+                    fontSize: 17,
+                    top: 126,
+                    right: 114,
                     fontWeight: 'normal',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
@@ -160,9 +160,9 @@ export const Home: React.FC = () => {
             <Text
                 style={{
                     color: '#00D8FE',
-                    fontSize: 20,
-                    top: 55,
-                    right: -144,
+                    fontSize: 35,
+                    top: 135,
+                    right: 117,
                     fontWeight: 'bold',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
@@ -172,8 +172,8 @@ export const Home: React.FC = () => {
                 <Text
                     style={{
                         color: '#00D8FE',
-                        fontSize: 15,
-                        top: 55,
+                        fontSize: 23,
+                        top: 155,
                         right: -130,
                         fontWeight: 'normal',
                         fontFamily: 'Roboto',
@@ -186,9 +186,9 @@ export const Home: React.FC = () => {
             <Text
                 style={{
                     color: '#30030E',
-                    fontSize: 13,
-                    top: 51.5,
-                    right: -148,
+                    fontSize: 17,
+                    top: 131.5,
+                    right: 93,
                     fontWeight: 'normal',
                     fontFamily: 'Roboto',
                     textAlign: 'left',
@@ -198,12 +198,12 @@ export const Home: React.FC = () => {
             </Text>
 
 
-            <View style={{ top: 90, right: -17 }}>
+            {/* <View style={{ top: 45, right: -136 }}>
                 <SmallButton title={isGenerated ? 'Tekrar Hesapla' : 'Hesapla'} onPress={regenerateData} />
             </View>
             <View style={{ top: 52, right: -136 }}>
                 <SmallButton title={'Sıfırla'} onPress={deleteData} />
-            </View>
+            </View> */}
             
             <Card>
                 <Text style={{ top: -17, textAlign: 'center', fontSize: 18 }}>Kalp Atış Hızı</Text>

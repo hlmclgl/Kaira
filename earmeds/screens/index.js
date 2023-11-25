@@ -1,13 +1,15 @@
 import { Home } from "./Home/Home";
 import ColorPalette from "./ColorPalette";
 import MenstrualCycle from "./MenstrualCycle";
-import Translate from "./Translate";
+import AriseAI from "./AriseAI";
 import Weather from "./Weather";
+import Asistant from "./Asistant";
 
 export{
     Home,
     ColorPalette,
     MenstrualCycle,
-    Translate,
-    Weather
+    Asistant,
+    AriseAI,
+    Weather,
 }

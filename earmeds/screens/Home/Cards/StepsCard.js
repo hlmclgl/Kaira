@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
     width: 180,
     height: 150,
-    top:-440,
+    top:-388,
     right: -95,
     borderWidth: 2,
     borderStyle: 'solid',

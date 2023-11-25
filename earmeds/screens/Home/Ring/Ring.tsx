@@ -31,8 +31,10 @@ export const Ring: React.FC<Props> = ({ radius, bgColor, gradientStartColor, gra
     }).start();
   }, [fill]);
 
+  const iconTransform = `translate(${radius}, 0) rotate(-90)`;
+
   return (
-    <Svg height="150" width="150" viewBox="0 0 180 180" style={{ position: 'absolute', left: 10, top: 70 }}>
+    <Svg height="230" width="250" viewBox="0 0 180 180" style={{ position: 'absolute', left: 150, top: 65 }}>
       <Defs>
         <LinearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <Stop offset="0%" stopColor={gradientEndColor} />
@@ -52,8 +54,9 @@ export const Ring: React.FC<Props> = ({ radius, bgColor, gradientStartColor, gra
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
         />
-        <G transform={`translate(95 ${85 - radius})`}>
-          <G transform={`rotate(-90 ${radius} 0) rotate(180)`}>{icon}</G>
+        <G transform={`translate(95 ${85 - radius}) ${iconTransform}`}>
+          {icon}
+          {/* <G transform={`rotate(-90 ${radius} 0) rotate(180)`}>{icon}</G> */}
         </G>
       </G>
     </Svg>

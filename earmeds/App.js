@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
 
-import { Home, ColorPalette, MenstrualCycle, Translate, Weather } from "./screens"
+import { Home, ColorPalette, MenstrualCycle, AriseAI, Weather,Asistant } from "./screens"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -37,20 +37,27 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
-          name="Translate"
-          component={Translate}
+          name="AriseAI"
+          component={AriseAI}
           options={{
             tabBarIcon: ({ focused }) => {
               return (
                 <View style={{ alignItems: "center", justifyContent: "center" }}>
-                  <MaterialIcons name="translate" size={24} color={focused ? "#29AB87" : "#111"} />
+                  <MaterialCommunityIcons name="artstation" size={24} color={focused ? "#29AB87" : "#111"} />
 
-                  <Text style={{ fontSize: 12, color: focused ? "#29AB87" : "#111" }}>Çeviri</Text>
+                  <Text style={{ fontSize: 12, color: focused ? "#29AB87" : "#111" }}>Arise AI</Text>
 
                 </View>
               )
             }
           }}
+        />
+        <Tab.Screen
+          name="Asistant"
+          component={Asistant}
+          options={({ route }) => ({
+            tabBarStyle: { display: route.name === 'Asistant' ? 'none' : 'flex' },
+          })}
         />
         <Tab.Screen
           name="Weather"
@@ -60,7 +67,7 @@ export default function App() {
               return (
                 <View style={{ alignItems: "center", justifyContent: "center" }}>
                   <MaterialCommunityIcons name="weather-partly-cloudy" size={24} color={focused ? "#33CCCC" : "#111"} />
-                  <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Hava Durumuaaa</Text>
+                  <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Hava Durumu</Text>
                 </View>
               )
             }
