@@ -8,7 +8,7 @@ import {
     Alert,
 } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
-import Features from '../components/features';
+import Features from '../../components/features';
 import Voice from '@react-native-community/voice';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Tts from 'react-native-tts';
