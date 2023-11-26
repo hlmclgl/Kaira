@@ -1,21 +1,22 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity  } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-export default function AriseAI() {
+
+export default function AI() {
 
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView className="flex-1 flex justify-around bg-black">
+    <SafeAreaView className="flex-1 flex justify-around bg-white">
       {/* title */}
       <View className="space-y-2">
         <Text style={{ fontSize: wp(10) }} className="text-center font-bold text-gray-700">
-          Arise
+          Jarvis
         </Text>
         <Text style={{ fontSize: wp(4) }} className="text-center tracking-wider font-semibold text-gray-600">
-          Gelecek burada, yapay zeka ile güçlendirildi.
+          The future is here, powerd by AI.
         </Text>
       </View>
 
@@ -28,9 +29,9 @@ export default function AriseAI() {
       </View>
 
       {/* start button */}
-      <TouchableOpacity onPress={() => navigation.navigate('Asistant')} className="bg-emerald-600 mx-5 p-3 rounded-2xl mb-16">
+      <TouchableOpacity onPress={() => navigation.navigate('Asistant')} className="bg-emerald-600 mx-5 p-4 rounded-2xl">
         <Text style={{ fontSize: wp(6) }} className="text-center font-bold text-white">
-          Hadi Başlayalım
+          Get Started
         </Text>
       </TouchableOpacity>
     </SafeAreaView>

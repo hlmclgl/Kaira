@@ -6,168 +6,104 @@ import {
     Image,
     ScrollView,
     Alert,
-} from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
-import Features from '../../components/features';
-import Voice from '@react-native-community/voice';
+} from 'react-native'
+import React, { useState, useRef, useEffect } from 'react';
+import Voice from '@react-native-voice/voice';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Tts from 'react-native-tts';
+import Features from '../components/features';
+import { dummyMessages } from '../constants';
+
+
 
 export default function Asistant() {
 
-    // const [result, setResult] = useState('');
-    // const [recording, setRecording] = useState(false);
-    // const [loading, setLoading] = useState(false);
-    const [messages, setMessages] = useState([]);
-    // const [speaking, setSpeaking] = useState(false);
-    // const scrollViewRef = useRef();
+    const [messages, setMessages] = useState(dummyMessages);
+    const [result, setResult] = useState('');
+    const [recording, setRecording] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [speaking, setSpeaking] = useState(true);
+    const scrollViewRef = useRef();
 
-    // const speechStartHandler = e => {
-    //     console.log('speech start event', e);
-    // };
-    // const speechEndHandler = e => {
-    //     setRecording(false);
-    //     console.log('speech stop event', e);
-    // };
-    // const speechResultsHandler = e => {
-    //     console.log('speech event: ', e);
-    //     const text = e.value[0];
-    //     setResult(text);
+    const speechStartHandler = e => {
+        console.log('speech start event', e);
+    };
+    const speechEndHandler = e => {
+        setRecording(false);
+        console.log('speech stop event', e);
+    };
+    const speechResultsHandler = e => {
+        console.log('voice event: ', e);
+        //const text = e.value[0];
+        //setResult(text);
+    };
 
-    // };
+    const speechErrorHandler = e => {
+        console.log('speech error: ', e);
+    }
 
-    // const speechErrorHandler = e => {
-    //     console.log('speech error: ', e);
-    // }
+    const startRecording = async () => {
+        setRecording(true);
+        //Tts.stop();
+        try {
+            await Voice.start('en-GB'); // en-US
 
+        } catch (error) {
+            console.log('error:', error);
+        }
+    };
+    const stopRecording = async () => {
 
-    // const startRecording = async () => {
-    //     setRecording(true);
-    //     Tts.stop();
-    //     try {
-    //         await Voice.start('en-GB'); // en-US
+        try {
+            await Voice.stop();
+            setRecording(false);
+            //fetchResponse();
+        } catch (error) {
+            console.log('error', error);
+        }
+    };
 
-    //     } catch (error) {
-    //         console.log('error', error);
-    //     }
-    // };
-    // const stopRecording = async () => {
+    const clear = () => {
+        //Tts.stop();
+        //setSpeaking(false);
+        //setLoading(false);
+        setMessages([]);
+    };
 
-    //     try {
-    //         await Voice.stop();
-    //         setRecording(false);
-    //         fetchResponse();
-    //     } catch (error) {
-    //         console.log('error', error);
-    //     }
-    // };
-    // const clear = () => {
-    //     Tts.stop();
-    //     setSpeaking(false);
-    //     setLoading(false);
-    //     setMessages([]);
-    // };
-
-    // const fetchResponse = async () => {
-    //     if (result.trim().length > 0) {
-    //         setLoading(true);
-    //         let newMessages = [...messages];
-    //         newMessages.push({ role: 'user', content: result.trim() });
-    //         setMessages([...newMessages]);
-
-    //         // scroll to the bottom of the view
-    //         updateScrollView();
-
-    //         // fetching response from chatGPT with our prompt and old messages
-    //         apiCall(result.trim(), newMessages).then(res => {
-    //             console.log('got api data');
-    //             setLoading(false);
-    //             if (res.success) {
-    //                 setMessages([...res.data]);
-    //                 setResult('');
-    //                 updateScrollView();
-
-    //                 // now play the response to user
-    //                 startTextToSpeach(res.data[res.data.length - 1]);
-
-    //             } else {
-    //                 Alert.alert('Error', res.msg);
-    //             }
-
-    //         })
-    //     }
-    // }
-
-
-
-    // const updateScrollView = () => {
-    //     setTimeout(() => {
-    //         scrollViewRef?.current?.scrollToEnd({ animated: true });
-    //     }, 200)
-    // }
-
-    // const startTextToSpeach = message => {
-    //     if (!message.content.includes('https')) {
-    //         setSpeaking(true);
-    //         // playing response with the voice id and voice speed
-    //         Tts.speak(message.content, {
-    //             iosVoiceId: 'com.apple.ttsbundle.Samantha-compact',
-    //             rate: 0.5,
-    //         });
-    //     }
-    // }
-
-
-    // const stopSpeaking = () => {
-    //     Tts.stop();
-    //     setSpeaking(false);
-    // }
+    const stopSpeaking = () => {
+        //Tts.stop();
+        setSpeaking(false);
+    };
 
     // useEffect(() => {
-
-    //     // voice handler events
     //     Voice.onSpeechStart = speechStartHandler;
     //     Voice.onSpeechEnd = speechEndHandler;
     //     Voice.onSpeechResults = speechResultsHandler;
     //     Voice.onSpeechError = speechErrorHandler;
 
-    //     // text to speech events
-    //     Tts.setDefaultLanguage('en-IE');
-    //     Tts.addEventListener('tts-start', event => console.log('start', event));
-    //     Tts.addEventListener('tts-finish', event => { console.log('finish', event); setSpeaking(false) });
-    //     Tts.addEventListener('tts-cancel', event => console.log('cancel', event));
-
-
-
     //     return () => {
     //         // destroy the voice instance after component unmounts
     //         Voice.destroy().then(Voice.removeAllListeners);
-    //     };
+    //     }
     // }, []);
 
     return (
         <View className="flex-1 bg-white">
-            {/* <StatusBar barStyle="dark-content" /> */}
             <SafeAreaView className="flex-1 flex mx-5">
-                {/* bot icon */}
-                <View className="flex-row justify-center mt-12">
-                    <Image
-                        source={require('earmeds/assets/bot.png')}
-                        style={{ height: hp(15), width: hp(15) }}
-                    />
+                <View className="flex-row justify-center mt-0">
+                    <Image source={require('earmeds/assets/yy3.gif')} style={{ height: hp(15), width: hp(15) }}></Image>
                 </View>
 
-                {/* features || message history */}
                 {
                     messages.length > 0 ? (
                         <View className="space-y-2 flex-1">
-                            <Text className="text-gray-700 font-semibold ml-1" style={{ fontSize: wp(5) }}>Assistant</Text>
-
+                            <Text style={{ fontSize: wp(5) }} className="text-gray-700 font-semibold ml-1">
+                                Asistan
+                            </Text>
                             <View
-                                style={{ height: hp(58) }}
-                                className="bg-neutral-200 rounded-3xl p-4">
+                                style={{ height: hp(62) }}
+                                className="bg-neutral-200 rounded-3xl p-4"
+                            >
                                 <ScrollView
-                                    ref={scrollViewRef}
                                     bounces={false}
                                     className="space-y-4"
                                     showsVerticalScrollIndicator={false}
@@ -230,8 +166,53 @@ export default function Asistant() {
                     )
                 }
 
+                {/* recording, clear and stop buttons */}
+                <View className="flex justify-center items-center mt-16">
+                    {
+                        recording ? (
+                            <TouchableOpacity className="space-y-2" onPress={null}>
+                                {/* recording stop button */}
+                                <Image
+                                    className="rounded-full"
+                                    source={require('earmeds/assets/voiceLoading.gif')}
+                                    style={{ width: hp(10), height: hp(10) }}
+                                />
+                            </TouchableOpacity>
+                        ) : (
+                            <TouchableOpacity className="space-y-2" onPress={null}>
+                                {/* recording start button */}
+                                <Image
+                                    className="rounded-full"
+                                    source={require('earmeds/assets/recordingIcon.png')}
+                                    style={{ width: hp(10), height: hp(10) }}
+                                />
+                            </TouchableOpacity>
+                        )
+                    }
+                    {
+                        messages.length > 0 && (
+                            <TouchableOpacity
+                                onPress={clear}
+                                className="bg-neutral-400 rounded-3xl p-3 absolute right-0"
+                            >
+                                <Text className="text-white font-semibold">  Temizle  </Text>
+                            </TouchableOpacity>
+                        )
+                    }
+                    {
+                        speaking && (
+                            <TouchableOpacity
+                                onPress={stopSpeaking}
+                                className="bg-red-400 rounded-3xl p-3 absolute left-0"
+                            >
+                                <Text className="text-white font-semibold ">   Durdur   </Text>
+                            </TouchableOpacity>
+                        )
+                    }
 
 
+
+                </View>
 
             </SafeAreaView>
         </View>
