@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { Home, ColorPalette, MenstrualCycle, Weather, Welcome } from "../screens"
+import { Home, ColorPalette, MenstrualCycle, Settings, Welcome } from "../screens"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import { Platform } from 'react-native';
 
@@ -48,15 +48,17 @@ export default function AppNavigation() {
                 }}
             />
             <Tab.Screen
-                name="Weather"
-                component={Weather}
+                name="ColorPalette"
+                component={ColorPalette}
                 options={{
-                    headerShown: false,
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View style={{ alignItems: "center", justifyContent: "center" }}>
-                                <MaterialCommunityIcons name="weather-partly-cloudy" size={24} color={focused ? "#33CCCC" : "#111"} />
-                                <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Hava Durumu</Text>
+
+                                <Ionicons name="ios-color-palette-outline" size={24} color={focused ? "#FFD700" : "#111"} />
+                                <Text style={{ fontSize: 12, color: focused ? "#FFD700" : "#111" }}>Renk Paleti</Text>
+
+
                             </View>
                         )
                     }
@@ -86,23 +88,6 @@ export default function AppNavigation() {
                 }}
             />
             <Tab.Screen
-                name="ColorPalette"
-                component={ColorPalette}
-                options={{
-                    tabBarIcon: ({ focused }) => {
-                        return (
-                            <View style={{ alignItems: "center", justifyContent: "center" }}>
-
-                                <Ionicons name="ios-color-palette-outline" size={24} color={focused ? "#FFD700" : "#111"} />
-                                <Text style={{ fontSize: 12, color: focused ? "#FFD700" : "#111" }}>Renk Paleti</Text>
-
-
-                            </View>
-                        )
-                    }
-                }}
-            />
-            <Tab.Screen
                 name="MenstrualCycle"
                 component={MenstrualCycle}
                 options={{
@@ -111,6 +96,21 @@ export default function AppNavigation() {
                             <View style={{ alignItems: "center", justifyContent: "center" }}>
                                 <MaterialCommunityIcons name="calendar-heart" size={24} color={focused ? "#AA336A" : "#111"} />
                                 <Text style={{ color: focused ? "#AA336A" : "#111", fontSize: 12 }}>Periyod İzleyici</Text>
+                            </View>
+                        )
+                    }
+                }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => {
+                        return (
+                            <View style={{ alignItems: "center", justifyContent: "center" }}>
+                                <Feather name="settings" size={24} color= {focused ? "#33CCCC" : "#111"} />
+                                <Text style={{ fontSize: 12, color: focused ? "#33CCCC" : "#111" }}>Ayarlar</Text>
                             </View>
                         )
                     }

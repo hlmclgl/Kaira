@@ -1,15 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient';
-import React from 'react'
-import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
-import Animated, { interpolateColor, useAnimatedGestureHandler, useAnimatedStyle, useDerivedValue, useSharedValue, withSpring } from 'react-native-reanimated';
+import React, { useCallback } from 'react'
+import { PanGestureHandler, PanGestureHandlerGestureEvent, TapGestureHandler, TapGestureHandlerGestureEvent } from 'react-native-gesture-handler';
+import Animated, { interpolateColor, useAnimatedGestureHandler, useAnimatedStyle, useDerivedValue, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 
 interface ColorPickerProps extends LinearGradientProps {
-  maxWidth: number
+  maxWidth: number;
+  onColorChanged?: (color: string | number) => void;
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ colors, start, end, style, maxWidth }) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({ colors, start, end, style, maxWidth, onColorChanged, }) => {
 
 
   const translateX = useSharedValue(0);
@@ -23,23 +24,33 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ colors, start, end, style, ma
     );
   });
 
+  const onEnd = useCallback(() => {
+    'worklet';
+    translateY.value = withSpring(0);
+    scale.value = withSpring(1);
+  }, [])
+
   const panGestureEvent = useAnimatedGestureHandler<PanGestureHandlerGestureEvent,
     { x: number }
   >({
     onStart: (_, context) => {
       context.x = translateX.value
 
-      translateY.value = withSpring(-CIRCLE_PICKER_SIZE);
-      scale.value = withSpring(1.2);
     },
     onActive: (event, context) => {
       translateX.value = event.translationX + context.x;
     },
-    onEnd: () => {
-      translateY.value = withSpring(0);
-      scale.value = withSpring(1);
-    },
+    onEnd,
   });
+
+  const tapGestureEvent = useAnimatedGestureHandler<TapGestureHandlerGestureEvent>({
+    onStart: (event) => {
+      translateY.value = withSpring(-CIRCLE_PICKER_SIZE);
+      scale.value = withSpring(1.2);
+      translateX.value = withTiming(event.absoluteX - CIRCLE_PICKER_SIZE);
+    },
+    onEnd,
+  })
 
   const rStyle = useAnimatedStyle(() => {
     return {
@@ -57,20 +68,28 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ colors, start, end, style, ma
 
     const backgroundColor = interpolateColor(translateX.value, inputRange, colors);
 
+    onColorChanged?.(backgroundColor);
+
     return {
       backgroundColor: backgroundColor,
     }
   })
 
   return (
-    <PanGestureHandler onGestureEvent={panGestureEvent}>
-      <Animated.View style={{ justifyContent: 'center' }}>
-        <LinearGradient colors={colors} start={start} end={end} style={style} />
-        <Animated.View style={[styles.picker, rStyle]} >
-          <Animated.View style={[styles.internalPicker, rInternalPickerStyle]} />
-        </Animated.View>
+    <TapGestureHandler onGestureEvent={tapGestureEvent}>
+      <Animated.View>
+        <PanGestureHandler onGestureEvent={panGestureEvent}>
+          <Animated.View style={{ justifyContent: 'center' }}>
+            <LinearGradient colors={colors} start={start} end={end} style={style} />
+            <Animated.View style={[styles.picker, rStyle]} >
+              <Animated.View style={[styles.internalPicker, rInternalPickerStyle]} />
+            </Animated.View>
+          </Animated.View>
+        </PanGestureHandler>
       </Animated.View>
-    </PanGestureHandler>
+
+    </TapGestureHandler>
+
 
 
   )
@@ -102,3 +121,4 @@ const styles = StyleSheet.create({
 });
 
 export { ColorPicker };
+
