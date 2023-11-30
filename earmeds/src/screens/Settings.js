@@ -14,55 +14,55 @@ import { Feather } from '@expo/vector-icons';
 
 const SECTIONS = [
   {
-    header: 'Preferences',
+    header: 'Tercihler',
     icon: 'settings',
     items: [
-      { icon: 'globe', color: '#fe9400', label: 'Language', type: 'link' },
+      { icon: 'globe', color: '#fe9400', label: 'Dil', type: 'link' },
       {
         icon: 'moon',
         color: '#007afe',
-        label: 'Dark Mode',
+        label: 'Karanlık Mod',
         value: true,
         type: 'boolean',
       },
       {
         icon: 'wifi',
         color: '#007afe',
-        label: 'Use Wi-Fi',
+        label: 'Wi-Fi Kullan',
         value: true,
         type: 'boolean',
       },
-      { icon: 'navigation', color: '#32c759', label: 'Location', type: 'link' },
+      { icon: 'navigation', color: '#32c759', label: 'Konum', type: 'link' },
       {
         icon: 'users',
         color: '#32c759',
-        label: 'Show collaborators',
+        label: 'Yakındakileri Göster',
         value: true,
         type: 'boolean',
       },
       {
         icon: 'airplay',
         color: '#fd2d54',
-        label: 'Accessibility mode',
+        label: 'Erişilebilirlik Modu',
         value: false,
         type: 'boolean',
       },
     ],
   },
   {
-    header: 'Help',
+    header: 'Yardım',
     icon: 'help-circle',
     items: [
-      { icon: 'flag', color: '#8e8d91', label: 'Report Bug', type: 'link' },
-      { icon: 'mail', color: '#007afe', label: 'Contact Us', type: 'link' },
+      { icon: 'flag', color: '#8e8d91', label: 'Hata Bildir', type: 'link' },
+      { icon: 'mail', color: '#007afe', label: 'Bizimle İletişime Geç', type: 'link' },
     ],
   },
   {
-    header: 'Content',
+    header: 'İçerik',
     icon: 'align-center',
     items: [
-      { icon: 'save', color: '#32c759', label: 'Saved', type: 'link' },
-      { icon: 'download', color: '#fd2d54', label: 'Downloads', type: 'link' },
+      { icon: 'save', color: '#32c759', label: 'Kaydedilenler', type: 'link' },
+      { icon: 'download', color: '#fd2d54', label: 'İndirilenler', type: 'link' },
     ],
   },
 ];
@@ -80,7 +80,7 @@ export default function Settings() {
               <Image
                 alt=""
                 source={{
-                  uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80',
+                  uri: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 }}
                 style={styles.profileAvatar}
               />
@@ -97,10 +97,10 @@ export default function Settings() {
           </TouchableOpacity>
 
           <View style={styles.profileBody}>
-            <Text style={styles.profileName}>John Doe</Text>
+            <Text style={styles.profileName}>Ayça Ögeday</Text>
 
             <Text style={styles.profileAddress}>
-              123 Maple Street. Anytown, PA 17101
+              Gültepe Mah. 916 Sokak. SARIÇAM/ADANA 
             </Text>
           </View>
         </View>
