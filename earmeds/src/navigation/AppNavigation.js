@@ -95,7 +95,7 @@ export default function AppNavigation() {
                         return (
                             <View style={{ alignItems: "center", justifyContent: "center" }}>
                                 <MaterialCommunityIcons name="calendar-heart" size={24} color={focused ? "#AA336A" : "#111"} />
-                                <Text style={{ color: focused ? "#AA336A" : "#111", fontSize: 12 }}>Periyod İzleyici</Text>
+                                <Text style={{ color: focused ? "#AA336A" : "#111", fontSize: 12 }}>Periyot Takibi</Text>
                             </View>
                         )
                     }
