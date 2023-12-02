@@ -92,12 +92,12 @@ export default function MenstrualCycle() {
         />
 
         <View style={styles.markedContainer}>
-          <Image source={require('earmeds/assets/slateblueCircle1.png')} style={styles.image} />
+          <Image source={require('earmeds/assets/slateblueCircle.png')} style={styles.image} />
           <Text style={styles.text}>Doğurgan dönem: Gebe kalma ihtimali orta.</Text>
         </View>
 
         <View style={styles.markedContainer}>
-          <Image source={require('earmeds/assets/maroonCircle1.png')} style={styles.image} />
+          <Image source={require('earmeds/assets/maroonCircle.png')} style={styles.image} />
           <Text style={styles.text}>Yumurtlama dönemi: Gebe kalma ihtimali yüksek.</Text>
         </View>
 
