@@ -56,11 +56,47 @@ export default function Asistant() {
         try {
             await Voice.stop();
             setRecording(false);
-            //fetchResponse();
+            fetchResponse();
         } catch (error) {
             console.log('error', error);
         }
     };
+
+    const fetchResponse = async ()=>{
+        if(result.trim().length>0){
+          setLoading(true);
+          let newMessages = [...messages];
+          newMessages.push({role: 'user', content: result.trim()});
+          setMessages([...newMessages]);
+    
+          // scroll to the bottom of the view
+          updateScrollView();
+    
+          // fetching response from arise with our prompt and old messages
+          apiCall(result.trim(), newMessages).then(res=>{
+            console.log('got api data');
+            setLoading(false);
+            if(res.success){
+              setMessages([...res.data]);
+              setResult('');
+              updateScrollView();
+    
+              // now play the response to user
+              startTextToSpeach(res.data[res.data.length-1]);
+              
+            }else{
+              Alert.alert('Error', res.msg);
+            }
+            
+          })
+        }
+    }
+
+    const updateScrollView = ()=>{
+        setTimeout(()=>{
+          scrollViewRef?.current?.scrollToEnd({ animated: true });
+        },200)
+    }
 
     const clear = () => {
         //Tts.stop();
@@ -129,7 +165,7 @@ export default function Asistant() {
 
                                                     )
                                                 } else {
-                                                    // chat gpt response
+                                                    // arise ai response
                                                     return (
                                                         <View
                                                             key={index} style={{ width: wp(70) }}
@@ -170,7 +206,7 @@ export default function Asistant() {
                 <View className="flex justify-center items-center mt-16">
                     {
                         recording ? (
-                            <TouchableOpacity className="space-y-2" onPress={null}>
+                            <TouchableOpacity className="space-y-2" onPress={startRecording}>
                                 {/* recording stop button */}
                                 <Image
                                     className="rounded-full"

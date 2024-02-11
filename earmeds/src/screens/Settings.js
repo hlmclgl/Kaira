@@ -29,7 +29,7 @@ const SECTIONS = [
         icon: 'wifi',
         color: '#007afe',
         label: 'Wi-Fi Kullan',
-        value: true,
+        value: false,
         type: 'boolean',
       },
       { icon: 'navigation', color: '#32c759', label: 'Konum', type: 'link' },

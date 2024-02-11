@@ -31,7 +31,7 @@ export default function MenstrualCycle() {
 
   const [selectedPeriod, setSelectedPeriod] = useState({});
   const onDayPress = day => {
-    // Seçilen günün detaylarını burada işleyebilirsiniz
+    // details of choosed day processed here
     console.log('Selected day: ', day);
     setSelectedPeriod(day);
   };
@@ -40,7 +40,7 @@ export default function MenstrualCycle() {
     <SafeAreaView style={styles.container}>
       <View >
         <Text style={styles.title}>Sonraki Regl</Text>
-        <Text style={styles.dayText}>11 Aralık</Text>
+        <Text style={styles.dayText}>11 Şubat</Text>
         <View style={styles.containerText}>
           <Text style={styles.pregnantText}>Hamile kalma olasılığı</Text>
           <Text style={{ color: 'slateblue', fontWeight: 'bold', fontSize: 15 }}>DÜŞÜK.</Text>
@@ -74,6 +74,31 @@ export default function MenstrualCycle() {
           markingType={'period'}
           markedDates={{
             [selectedPeriod.dateString]: { startingDay: true, endingDay: true, Color: '#AA336A' },
+            '2023-10-10': { startingDay: true, color: '#AA336A' },
+            '2023-10-11': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-10-12': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-10-13': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-10-14': { endingDay: true, color: '#AA336A' },
+            '2023-10-19': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-10-20': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-10-21': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-10-22': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-10-23': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-10-24': { startingDay: true, endingDay: true, color: 'maroon' },
+
+
+            '2023-11-13': { startingDay: true, color: '#AA336A' },
+            '2023-11-14': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-11-15': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-11-16': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2023-11-17': { endingDay: true, color: '#AA336A' },
+            '2023-11-22': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-11-23': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-11-24': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-11-25': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-11-26': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2023-11-27': { startingDay: true, endingDay: true, color: 'maroon' },
+
             '2023-12-11': { startingDay: true, color: '#AA336A' },
             '2023-12-12': { marked: true, color: '#AA336A', dotColor: 'transparent' },
             '2023-12-13': { marked: true, color: '#AA336A', dotColor: 'transparent' },
@@ -85,6 +110,53 @@ export default function MenstrualCycle() {
             '2023-12-23': { startingDay: true, endingDay: true, color: 'maroon' },
             '2023-12-24': { startingDay: true, endingDay: true, color: 'slateblue' },
             '2023-12-05': { marked: true, dotColor: 'sienna' },
+
+            '2024-01-13': { startingDay: true, color: '#AA336A' },
+            '2024-01-14': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-01-15': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-01-16': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-01-17': { endingDay: true, color: '#AA336A' },
+            '2024-01-22': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-01-23': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-01-24': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-01-25': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-01-26': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-01-27': { startingDay: true, endingDay: true, color: 'maroon' },
+
+            '2024-02-11': { startingDay: true, color: '#AA336A' },
+            '2024-02-12': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-02-13': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-02-14': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-02-15': { endingDay: true, color: '#AA336A' },
+            '2024-02-20': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-02-21': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-02-22': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-02-23': { startingDay: true, endingDay: true, color: 'maroon' },
+            '2024-02-24': { startingDay: true, endingDay: true, color: 'slateblue' },
+            
+            '2024-03-09': { startingDay: true, color: '#AA336A' },
+            '2024-03-10': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-03-11': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-03-12': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-03-13': { endingDay: true, color: '#AA336A' },
+            '2024-03-18': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-03-19': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-03-20': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-03-21': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-03-22': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-03-23': { startingDay: true, endingDay: true, color: 'maroon' },
+
+            '2024-04-06': { startingDay: true, color: '#AA336A' },
+            '2024-04-07': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-04-08': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-04-09': { marked: true, color: '#AA336A', dotColor: 'transparent' },
+            '2024-04-10': { endingDay: true, color: '#AA336A' },
+            '2024-04-15': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-04-16': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-04-17': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-04-18': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-04-19': { startingDay: true, endingDay: true, color: 'slateblue' },
+            '2024-04-20': { startingDay: true, endingDay: true, color: 'maroon' },
 
           }}
           multiPeriodSelection={true}
@@ -98,7 +170,7 @@ export default function MenstrualCycle() {
 
         <View style={styles.markedContainer}>
           <Image source={require('earmeds/assets/maroonCircle.png')} style={styles.image} />
-          <Text style={styles.text}>Yumurtlama dönemi: Gebe kalma ihtimali yüksek.</Text>
+          <Text style={styles.text}>Yumurtlama günü: Gebe kalma ihtimali yüksek.</Text>
         </View>
 
       </View>
@@ -153,9 +225,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 40, // İhtiyaca göre ayarlayın
-    height: 40, // İhtiyaca göre ayarlayın
-    marginRight: 30, // İhtiyaca göre ayarlayın
+    width: 40,
+    height: 40, 
+    marginRight: 30, 
     left: 28
 
   },

@@ -30,7 +30,7 @@ const screenOptions = {
 
 export default function AppNavigation() {
     return (
-        <Tab.Navigator screenOptions={screenOptions}>
+        <Tab.Navigator screenOptions={screenOptions} initialRouteName='Onboarding'>
             <Tab.Screen
                 name="Welcome"
                 component={Welcome}

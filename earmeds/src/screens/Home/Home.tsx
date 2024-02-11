@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Ring } from './Ring/Ring';
 import Card from './Cards/HeartRateCard';
 import { SmallButton } from './SmallButtons/SmallButton';
-import { AntDesign, FontAwesome5, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import Card1 from './Cards/SpO2Card';
 import Card2 from './Cards/StressCard';
 import Card3 from './Cards/BloodSugarCard';
@@ -38,7 +38,7 @@ export const Home: React.FC = () => {
             gradientStartColor: colors.redStart,
             gradientEndColor: colors.redEnd,
             fill: percent1,
-            icon: <AntDesign name="arrowright" size={10} color="black" />,
+            icon: <AntDesign name="arrowright" size={1} color="black" />,
         },
         {
             radius: 50,
@@ -46,7 +46,7 @@ export const Home: React.FC = () => {
             gradientStartColor: colors.greenStart,
             gradientEndColor: colors.greenEnd,
             fill: percent2,
-            icon: <AntDesign name="doubleright" size={10} color="black"/>,
+            icon: <AntDesign name="doubleright" size={1} color="black"/>,
         },
         {
             radius: 30,
@@ -54,7 +54,7 @@ export const Home: React.FC = () => {
             gradientStartColor: colors.blueStart,
             gradientEndColor: colors.blueEnd,
             fill: percent3,
-            icon: <Ionicons name="arrow-up" size={24} color="black" />,
+            icon: <Ionicons name="arrow-up" size={1} color="black" />,
         },
     ];
 
