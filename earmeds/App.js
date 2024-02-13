@@ -12,29 +12,41 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <Stack.Navigator initialRouteName='Onboarding'>
-          <Stack.Screen
-            name="AppNavigation"
-            component={AppNavigation}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Onboarding"
-            component={Onboarding}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="AriseAI"
-            component={Asistant}
-          />
-        </Stack.Navigator>
-      </GestureHandlerRootView>
-    </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <NavigationContainer>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Stack.Navigator initialRouteName='Onboarding'>
+            <Stack.Screen
+              name="AppNavigation"
+              component={AppNavigation}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Onboarding"
+              component={Onboarding}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="AriseAI"
+              component={Asistant}
+            />
+          </Stack.Navigator>
+        </GestureHandlerRootView>
+      </NavigationContainer>
+    </SafeAreaView>
+    
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    // İçeriğinizin stilleri buraya gelecek
+  },
+});
 
 
 

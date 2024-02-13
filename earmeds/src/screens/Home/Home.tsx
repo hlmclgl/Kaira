@@ -18,9 +18,9 @@ export const Home: React.FC = () => {
     const [percent3, setPercent3] = useState(0);
 
     const regenerateData = () => {
-        setPercent1(Math.floor(65));
-        setPercent2(Math.floor(55));
-        setPercent3(Math.floor(83.5));
+        setPercent1(Math.floor(80));
+        setPercent2(Math.floor(70));
+        setPercent3(Math.floor(80.5));
         setIsGenerated(true);
     };
 
